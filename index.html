@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>AI 原生组织调研工具 v1.7.1</title>
+<title>AI 原生组织调研工具 v1.5</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -1358,18 +1358,6 @@
   }
   .history-empty .big { font-size: 48px; margin-bottom: 12px; }
 
-  /* ── PDF Export Button ── */
-  .btn-pdf {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-    border: none;
-  }
-  .btn-pdf:hover {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-  }
-
   /* ── Mobile Responsive ── */
   @media (max-width: 768px) {
     .layout {
@@ -1568,12 +1556,6 @@
     }
   }
 </style>
-<!-- jsPDF for PDF export -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<!-- jsPDF AutoTable plugin for tables -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-<!-- html2canvas for capturing report content -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -1624,7 +1606,7 @@
       <div class="update-info">
         <div class="update-row">
           <span class="update-label">当前版本</span>
-          <span class="update-value" id="current-version">v1.7</span>
+          <span class="update-value" id="current-version">v1.5</span>
         </div>
         <div class="update-row">
           <span class="update-label">信息库周期</span>
@@ -2286,8 +2268,6 @@
 
       <div class="flex-gap mt-16">
         <button class="btn btn-primary" id="btn-generate">⚡ 立即生成报告</button>
-        <button class="btn btn-secondary" id="btn-print">🖨️ 打印报告</button>
-        <button class="btn btn-pdf" id="btn-export-pdf">📥 导出 PDF</button>
       </div>
     </div>
   </div>
@@ -2906,8 +2886,6 @@ function initReportControls() {
 
   // Generate button
   document.getElementById('btn-generate')?.addEventListener('click', generateReport);
-  document.getElementById('btn-print')?.addEventListener('click', printReport);
-  document.getElementById('btn-export-pdf')?.addEventListener('click', exportReportToPDF);
 }
 
 // ══ ORGS ══
@@ -3397,186 +3375,6 @@ ${hasFailure || activeDimIds.length === 0 ? `
   </div>
 </div>
   `;
-}
-
-function printReport() {
-  if (!document.getElementById('report-output').classList.contains('show')) {
-    toast('请先生成报告再导出');
-    return;
-  }
-  window.print();
-}
-
-// ══ PDF EXPORT ══
-async function exportReportToPDF() {
-  const reportSection = document.getElementById('report-output');
-  if (!reportSection || !reportSection.classList.contains('show')) {
-    toast('请先生成报告再导出 PDF');
-    return;
-  }
-
-  toast('正在生成 PDF，请稍候...');
-
-  try {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({
-      orientation: 'portrait',
-      unit: 'mm',
-      format: 'a4'
-    });
-
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 20;
-    const contentWidth = pageWidth - margin * 2;
-    let yPos = margin;
-
-    // Helper functions
-    const addText = (text, fontSize = 11, isBold = false, color = [30, 35, 45]) => {
-      doc.setFontSize(fontSize);
-      doc.setFont('helvetica', isBold ? 'bold' : 'normal');
-      doc.setTextColor(...color);
-      doc.text(text, margin, yPos);
-      yPos += fontSize * 0.4 + 2;
-    };
-
-    const addSeparator = () => {
-      doc.setDrawColor(200, 200, 210);
-      doc.line(margin, yPos, pageWidth - margin, yPos);
-      yPos += 8;
-    };
-
-    // Title
-    doc.setFillColor(91, 108, 255);
-    doc.rect(0, 0, pageWidth, 35, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(20);
-    doc.setFont('helvetica', 'bold');
-    doc.text('AI 原生组织调研报告', margin, 18);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.text(`生成时间：${new Date().toLocaleString('zh-CN')}`, margin, 26);
-    doc.text('来源：AI 原生组织调研工具 v1.7', pageWidth - margin - 50, 26);
-
-    yPos = 45;
-
-    // Get selected dimensions
-    const selectedDims = DIMENSIONS.filter(d => selectedDimensions.includes(d.id));
-    const dimNames = selectedDims.map(d => d.name).join('、');
-
-    // Report header info
-    addText('报告概要', 14, true, [30, 35, 45]);
-    yPos += 2;
-    addSeparator();
-
-    const reportData = reportHistory.length > 0 ? reportHistory[reportHistory.length - 1] : null;
-    if (reportData) {
-      addText(`分析维度：${dimNames || '全维度'}`, 10, false, [80, 80, 90]);
-    }
-    addText(`报告类型：${reportData?.type === 'weekly' ? '周报摘要' : reportData?.type === 'deep' ? '深度分析' : '即时报告'}`, 10, false, [80, 80, 90]);
-    yPos += 6;
-
-    // Main content - use reportSection (report-output element)
-    if (reportSection) {
-      // Get all text content from report
-      const sections = reportSection.querySelectorAll('.report-section');
-
-      for (const section of sections) {
-        // Check page break
-        if (yPos > pageHeight - 50) {
-          doc.addPage();
-          yPos = margin;
-        }
-
-        // Section title
-        const titleEl = section.querySelector('h3');
-        if (titleEl) {
-          addText(titleEl.textContent, 13, true, [30, 35, 45]);
-          yPos += 3;
-        }
-
-        // Section content
-        const contentEls = section.querySelectorAll('p, li');
-        for (const el of contentEls) {
-          const text = el.textContent.trim();
-          if (!text) continue;
-
-          // Handle long text with word wrap
-          const lines = doc.splitTextToSize(text, contentWidth);
-          for (const line of lines) {
-            if (yPos > pageHeight - 25) {
-              doc.addPage();
-              yPos = margin;
-            }
-            addText(line, 10, false, [40, 40, 45]);
-          }
-        }
-        yPos += 8;
-      }
-    }
-
-    // Add benchmarks section
-    if (yPos > pageHeight - 60) {
-      doc.addPage();
-      yPos = margin;
-    }
-
-    addText('标杆组织参考', 14, true, [30, 35, 45]);
-    yPos += 2;
-    addSeparator();
-
-    // 获取根据当前 orgScope 筛选的组织
-    const selectedOrgs = ORGS.filter(o => {
-      if (orgScope.has('global') && ['openai','google','anthropic','meta','microsoft','cognition','klarna','shopify','perplexity','xai','mistral'].includes(o.id)) return true;
-      if (orgScope.has('china') && ['bytedance','alibaba','deepseek','tencent','baidu','meituan','xiaomi','oppo','vivo'].includes(o.id)) return true;
-      if (orgScope.has('startup') && ['cognition','anthropic','perplexity','deepseek','xai','mistral'].includes(o.id)) return true;
-      if (orgScope.has('finance') && ['klarna','stripe'].includes(o.id)) return true;
-      if (orgScope.has('hardware') && ['apple','huawei','dji','samsung','tesla','nvidia','foxconn','rockwell'].includes(o.id)) return true;
-      return false;
-    });
-    if (selectedOrgs.length > 0) {
-      for (const org of selectedOrgs.slice(0, 8)) {
-        if (yPos > pageHeight - 30) {
-          doc.addPage();
-          yPos = margin;
-        }
-        addText(`${org.icon} ${org.name}`, 11, true, [30, 35, 45]);
-        addText(`类型：${org.type} | 团队规模：${org.teamSize || '未知'}`, 9, false, [100, 100, 110]);
-        yPos += 4;
-      }
-    } else {
-      addText('未选择标杆组织对比', 10, false, [100, 100, 110]);
-    }
-
-    // Footer
-    const totalPages = doc.internal.getNumberOfPages();
-    for (let i = 1; i <= totalPages; i++) {
-      doc.setPage(i);
-      doc.setFontSize(8);
-      doc.setTextColor(120, 120, 130);
-      doc.text(
-        `第 ${i} 页 / 共 ${totalPages} 页 | AI 原生组织调研工具`,
-        pageWidth / 2,
-        pageHeight - 10,
-        { align: 'center' }
-      );
-      doc.text(
-        '本报告数据来源于公开资料汇编，仅供参考',
-        pageWidth / 2,
-        pageHeight - 6,
-        { align: 'center' }
-      );
-    }
-
-    // Save PDF
-    const fileName = `AI组织调研报告_${new Date().toLocaleDateString('zh-CN').replace(/\//g, '-')}.pdf`;
-    doc.save(fileName);
-    toast('PDF 导出成功！');
-
-  } catch (error) {
-    console.error('PDF export error:', error);
-    toast('PDF 导出失败，请重试');
-  }
 }
 
 // ══ HISTORY ══
