@@ -3456,7 +3456,7 @@ async function exportReportToPDF() {
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.text(`生成时间：${new Date().toLocaleString('zh-CN')}`, margin, 26);
-    doc.text('来源：AI 原生组织调研工具 v1.6', pageWidth - margin - 50, 26);
+    doc.text('来源：AI 原生组织调研工具 v1.7', pageWidth - margin - 50, 26);
 
     yPos = 45;
 
@@ -3471,9 +3471,9 @@ async function exportReportToPDF() {
 
     const reportData = reportHistory.length > 0 ? reportHistory[reportHistory.length - 1] : null;
     if (reportData) {
-      addText(`分析维度：${dimNames || '全维度'}`, 10, false, [100, 105, 120]);
+      addText(`分析维度：${dimNames || '全维度'}`, 10, false, [80, 80, 90]);
     }
-    addText(`报告类型：${reportData?.type === 'weekly' ? '周报摘要' : reportData?.type === 'deep' ? '深度分析' : '即时报告'}`, 10, false, [100, 105, 120]);
+    addText(`报告类型：${reportData?.type === 'weekly' ? '周报摘要' : reportData?.type === 'deep' ? '深度分析' : '即时报告'}`, 10, false, [80, 80, 90]);
     yPos += 6;
 
     // Main content
@@ -3492,7 +3492,7 @@ async function exportReportToPDF() {
         // Section title
         const titleEl = section.querySelector('h3');
         if (titleEl) {
-          addText(titleEl.textContent, 13, true, [91, 108, 255]);
+          addText(titleEl.textContent, 13, true, [30, 35, 45]);
           yPos += 3;
         }
 
@@ -3509,7 +3509,7 @@ async function exportReportToPDF() {
               doc.addPage();
               yPos = margin;
             }
-            addText(line, 10, false, [60, 65, 80]);
+            addText(line, 10, false, [40, 40, 45]);
           }
         }
         yPos += 8;
@@ -3542,11 +3542,11 @@ async function exportReportToPDF() {
           yPos = margin;
         }
         addText(`${org.icon} ${org.name}`, 11, true, [30, 35, 45]);
-        addText(`类型：${org.type} | 团队规模：${org.teamSize || '未知'}`, 9, false, [120, 125, 140]);
+        addText(`类型：${org.type} | 团队规模：${org.teamSize || '未知'}`, 9, false, [100, 100, 110]);
         yPos += 4;
       }
     } else {
-      addText('未选择标杆组织对比', 10, false, [120, 125, 140]);
+      addText('未选择标杆组织对比', 10, false, [100, 100, 110]);
     }
 
     // Footer
@@ -3554,7 +3554,7 @@ async function exportReportToPDF() {
     for (let i = 1; i <= totalPages; i++) {
       doc.setPage(i);
       doc.setFontSize(8);
-      doc.setTextColor(150, 150, 160);
+      doc.setTextColor(120, 120, 130);
       doc.text(
         `第 ${i} 页 / 共 ${totalPages} 页 | AI 原生组织调研工具`,
         pageWidth / 2,
