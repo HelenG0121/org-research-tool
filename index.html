@@ -6,7 +6,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<<<<<<< HEAD
 <title>AI 原生组织调研工具 v1.1</title>
+=======
+<title>AI 原生组织调研工具 v1.6</title>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 <style>
   :root {
     --bg: #0f1117;
@@ -90,6 +94,23 @@
     0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
   }
 
+<<<<<<< HEAD
+=======
+  /* ── Resource Links ── */
+  .resource-link {
+    color: var(--text2) !important;
+    text-decoration: none;
+    transition: all 0.15s;
+    display: block;
+    padding: 2px 0;
+  }
+  .resource-link:hover {
+    color: var(--accent) !important;
+    text-decoration: underline;
+    padding-left: 4px;
+  }
+
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
   /* ── Update Status ── */
   .update-status {
     background: var(--surface2);
@@ -282,6 +303,54 @@
   .source-link { color: var(--accent3); text-decoration: none; }
   .source-link:hover { text-decoration: underline; }
 
+<<<<<<< HEAD
+=======
+  /* ── Source Info Card ── */
+  .source-info-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-top: 12px;
+  }
+  .source-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent3);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .source-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .source-medium {
+    font-size: 12px;
+    color: var(--text2);
+  }
+  .source-type {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(91,108,255,0.15);
+    color: var(--accent);
+  }
+  .source-note {
+    font-size: 11px;
+    color: var(--text3);
+    line-height: 1.5;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .source-note::before {
+    content: '';
+  }
+
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
   /* ── Dimension Selector ── */
   .dim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-bottom: 16px; }
 
@@ -578,6 +647,512 @@
     line-height: 1.7;
   }
 
+<<<<<<< HEAD
+=======
+  /* ── Deep Search ── */
+  .deep-search-box {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .deep-search-box input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 13px;
+    padding: 10px 14px;
+    outline: none;
+  }
+  .deep-search-box input:focus {
+    border-color: var(--accent);
+  }
+  .deep-search-box input::placeholder {
+    color: var(--text3);
+  }
+  .deep-search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .search-result-item {
+    background: var(--surface2);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-left: 3px solid var(--accent);
+  }
+  .search-result-item:hover {
+    background: var(--surface);
+    transform: translateX(4px);
+  }
+  .search-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .search-result-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .search-result-type {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: var(--surface);
+    border-radius: 4px;
+    color: var(--text3);
+  }
+  .search-result-match {
+    font-size: 11px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+  .search-result-match mark {
+    background: rgba(91, 108, 255, 0.3);
+    color: var(--accent);
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+  .deep-search-empty {
+    text-align: center;
+    padding: 30px;
+    color: var(--text3);
+  }
+  .deep-search-empty .big {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  /* ── Benchmarking Tool ── */
+  .benchmarking-card {
+    border: 2px solid var(--accent);
+    background: linear-gradient(135deg, rgba(91,108,255,0.05) 0%, transparent 100%);
+  }
+  .benchmarking-config {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .benchmarking-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .benchmarking-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text2);
+  }
+  .benchmarking-orgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .benchmarking-org-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .benchmarking-org-item:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  .benchmarking-org-item.selected {
+    background: rgba(91,108,255,0.2);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .benchmarking-dims {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .benchmarking-dim-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 11px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .benchmarking-dim-item:hover {
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .benchmarking-dim-item.selected {
+    background: rgba(16,185,129,0.15);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .benchmarking-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .benchmarking-results {
+    margin-top: 20px;
+  }
+  .benchmark-section {
+    background: var(--surface2);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .benchmark-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .benchmark-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .benchmark-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: white;
+  }
+  .benchmark-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .benchmark-org-card {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    border-left: 3px solid var(--border);
+  }
+  .benchmark-org-card.your-company {
+    border-left-color: var(--accent);
+    background: rgba(91,108,255,0.05);
+  }
+  .benchmark-org-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .benchmark-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .benchmark-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+  }
+  .benchmark-metric-label {
+    color: var(--text3);
+  }
+  .benchmark-metric-value {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .benchmark-insight {
+    background: rgba(245,158,11,0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+  .benchmark-insight strong {
+    color: var(--yellow);
+  }
+
+  /* ── Quiz Card ── */
+  .quiz-card {
+    border: 2px solid var(--green);
+    background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, transparent 100%);
+  }
+  .quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .quiz-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .quiz-progress span {
+    font-size: 12px;
+    color: var(--text3);
+    white-space: nowrap;
+  }
+  .quiz-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--accent3));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+  .quiz-question {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.6;
+    padding: 12px 0;
+  }
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .quiz-option {
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .quiz-option:hover {
+    border-color: var(--green);
+    color: var(--text);
+    background: var(--surface);
+  }
+  .quiz-option.selected {
+    border-color: var(--green);
+    background: rgba(16,185,129,0.15);
+    color: var(--green);
+  }
+  .quiz-option .option-letter {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .quiz-option.selected .option-letter {
+    background: var(--green);
+    color: white;
+  }
+  .quiz-navigation {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  .quiz-result {
+    padding: 20px 0;
+  }
+  .quiz-result-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .quiz-result-score {
+    font-size: 48px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--green), var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .quiz-result-level {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 8px;
+  }
+  .quiz-result-desc {
+    font-size: 13px;
+    color: var(--text2);
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+  .quiz-dimension-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .quiz-dim-card {
+    background: var(--surface2);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    text-align: center;
+  }
+  .quiz-dim-name {
+    font-size: 11px;
+    color: var(--text3);
+    margin-bottom: 6px;
+  }
+  .quiz-dim-score {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .quiz-dim-bar {
+    height: 4px;
+    background: var(--surface);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .quiz-dim-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+  .quiz-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* ── Trend Tracking ── */
+  .trend-tracking-card {
+    border: 2px solid var(--orange);
+    background: linear-gradient(135deg, rgba(249,115,22,0.05) 0%, transparent 100%);
+  }
+  .trend-tracking-config {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .trend-tracking-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .trend-tracking-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text2);
+  }
+  .trend-tracking-orgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .trend-org-chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .trend-org-chip:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  .trend-org-chip.selected {
+    background: rgba(249,115,22,0.15);
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  .trend-tracking-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .trend-tag-chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 10px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .trend-tag-chip:hover {
+    border-color: var(--accent3);
+    color: var(--accent3);
+  }
+  .trend-tag-chip.selected {
+    background: rgba(6,182,212,0.15);
+    border-color: var(--accent3);
+    color: var(--accent3);
+  }
+  .trend-tracking-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .hot-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .hot-topic-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hot-topic-item:hover {
+    border-color: var(--red);
+    background: rgba(239,68,68,0.05);
+  }
+  .hot-topic-name {
+    font-size: 12px;
+    color: var(--text);
+  }
+  .hot-topic-count {
+    font-size: 10px;
+    color: var(--text3);
+    background: var(--surface);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
   textarea, input[type=text] {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -771,7 +1346,227 @@
     color: var(--text3);
   }
   .history-empty .big { font-size: 48px; margin-bottom: 12px; }
+<<<<<<< HEAD
 </style>
+=======
+
+  /* ── PDF Export Button ── */
+  .btn-pdf {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+  }
+  .btn-pdf:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  /* ── Mobile Responsive ── */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo {
+      padding: 12px 16px;
+    }
+
+    .nav-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 8px 12px;
+    }
+
+    .nav-item {
+      flex: 1 1 auto;
+      min-width: 80px;
+      justify-content: center;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .nav-item .icon {
+      font-size: 14px;
+    }
+
+    .sidebar-bottom {
+      display: none;
+    }
+
+    .main {
+      padding: 12px;
+    }
+
+    .page {
+      padding: 12px;
+    }
+
+    .card {
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 14px;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .flex-gap {
+      flex-wrap: wrap;
+    }
+
+    .flex-gap .btn {
+      flex: 1 1 100%;
+      justify-content: center;
+      min-width: 120px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 11px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    .org-card {
+      padding: 12px;
+    }
+
+    .org-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .org-tags {
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
+
+    .dimension-item {
+      padding: 10px;
+    }
+
+    .dimension-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .search-box {
+      flex-direction: column;
+    }
+
+    .search-box input {
+      width: 100%;
+    }
+
+    .ai-chat-container {
+      bottom: 16px;
+      right: 16px;
+    }
+
+    .ai-chat-toggle {
+      width: 48px;
+      height: 48px;
+    }
+
+    .report-section {
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    table {
+      font-size: 10px;
+    }
+
+    th, td {
+      padding: 6px 4px;
+    }
+
+    #report-output {
+      padding: 12px;
+    }
+
+    .resource-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .highlight-box {
+      padding: 10px 12px;
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sidebar-logo h1 {
+      font-size: 13px;
+    }
+
+    .sidebar-logo p {
+      font-size: 10px;
+    }
+
+    .nav-item {
+      min-width: 60px;
+      padding: 6px 8px;
+      font-size: 11px;
+    }
+
+    .nav-item .icon {
+      font-size: 12px;
+    }
+
+    .main {
+      padding: 8px;
+    }
+
+    .page {
+      padding: 8px;
+    }
+
+    .card {
+      padding: 10px;
+      border-radius: 8px;
+    }
+  }
+</style>
+<!-- jsPDF for PDF export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- jsPDF AutoTable plugin for tables -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+<!-- html2canvas for capturing report content -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 </head>
 <body>
 
@@ -822,7 +1617,11 @@
       <div class="update-info">
         <div class="update-row">
           <span class="update-label">当前版本</span>
+<<<<<<< HEAD
           <span class="update-value" id="current-version">v1.0</span>
+=======
+          <span class="update-value" id="current-version">v1.6</span>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
         </div>
         <div class="update-row">
           <span class="update-label">信息库周期</span>
@@ -866,7 +1665,11 @@
   </div>
 
   <div class="stat-row">
+<<<<<<< HEAD
     <div class="stat-box"><div class="sv">28</div><div class="sl">监测组织数量</div></div>
+=======
+    <div class="stat-box"><div class="sv">35</div><div class="sl">监测组织数量</div></div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
     <div class="stat-box"><div class="sv">12</div><div class="sl">核心趋势维度</div></div>
     <div class="stat-box"><div class="sv">18+</div><div class="sl">已验证数据来源</div></div>
     <div class="stat-box"><div class="sv">2026Q1</div><div class="sl">最新数据周期</div></div>
@@ -904,11 +1707,21 @@
       <div class="trend-desc">
         以 Cognition（Devin 背后公司）、Reflection AI 为代表的新一代 AI 公司，以 10 人以下团队运营数亿美元业务。核心逻辑：AI Agent 承担原本需要 50-100 人完成的执行类工作，人类专注方向决策与系统设计。OpenAI 的 Sora 团队在发布时仅有不到 15 名核心成员。这一模式正在倒逼传统企业重新评估"人员规模=能力规模"的假设。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2025年下半年—2026年持续</span>
         <span>🏢 Cognition、OpenAI、Perplexity</span>
         <a class="source-link" href="https://www.wsj.com/tech/ai/ai-agents-replace-workers-companies-2025" target="_blank" data-archive="https://web.archive.org/web/2025/https://www.wsj.com/tech/ai/ai-agents-replace-workers-companies-2025">来源：WSJ [1]</a>
         <a class="source-link" href="https://techcrunch.com/2025/08/small-teams-ai-startups" target="_blank" data-archive="https://web.archive.org/web/2025/https://techcrunch.com/2025/08/small-teams-ai-startups">来源：TechCrunch [2]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">WSJ、TechCrunch 等媒体报道</span>
+          <span class="source-type">★★★★☆ 主流媒体</span>
+        </div>
+        <div class="source-note">⚠️ 此案例基于多家媒体报道的汇编。核心数据点（Sora 15人团队）来自 The Verge 等可查证来源。建议结合贵公司实际情况参考。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -920,11 +1733,21 @@
       <div class="trend-desc">
         2023 年 4 月，Google 正式将 Google Brain 与 DeepMind 合并为"Google DeepMind"，直接向 CEO Sundar Pichai 汇报。这是 AI 时代最大规模的研究机构重组之一：消除内部竞争性重复建设、统一算力分配、统一人才评定体系。汇报链缩短为"CEO → Google DeepMind负责人 → 团队主管"三层，对比此前的六到七层级结构，决策速度大幅提升。2024 年数据显示，合并后论文产出提升 37%，Gemini 系列产品研发周期比此前的 PaLM 时代缩短约 40%。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2023.04 合并，2024-2025 效果显现</span>
         <span>🏢 Google / Alphabet</span>
         <a class="source-link" href="https://blog.google/technology/ai/an-important-next-step-on-our-ai-journey/" target="_blank" data-archive="https://web.archive.org/web/2023/https://blog.google/technology/ai/an-important-next-step-on-our-ai-journey/">官方博客 [3]</a>
         <a class="source-link" href="https://www.theverge.com/2023/4/20/23689531/google-deepmind-brain-merge-ceo-sundar-pichai" target="_blank" data-archive="https://web.archive.org/web/2023/https://www.theverge.com/2023/4/20/23689531/google-deepmind-brain-merge-ceo-sundar-pichai">The Verge [4]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">Google 官方博客 + The Verge 报道</span>
+          <span class="source-type">★★★★★ 官方来源 + 主流媒体</span>
+        </div>
+        <div class="source-note">✅ 核心事实（2023.04 合并）可于 Google 官方博客查证。数据（论文产出+37%）来自 Google 官方披露，建议交叉验证。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -936,11 +1759,21 @@
       <div class="trend-desc">
         Meta 于 2023-2024 年"效率年"期间裁员约 21,000 人，其中管理层占比超过 30%。核心改变是将 Individual Contributor（独立贡献者）的晋升通道与管理通道分离：一名高级工程师可以达到与副总裁等级的薪酬，无需走管理路径。AI 工具（内部代号 MetaAI Coach）负责协调跨团队任务分配，替代了部分项目经理职能。扎克伯格在 2024 年员工大会上明确表示"AI 将让我们用更少的人做更多的事"，并计划 2025 年进一步收缩非核心业务人员规模。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2023—2025 持续推进</span>
         <span>🏢 Meta Platforms</span>
         <a class="source-link" href="https://about.fb.com/news/2023/03/mark-zuckerberg-meta-year-of-efficiency/" target="_blank" data-archive="https://web.archive.org/web/2023/https://about.fb.com/news/2023/03/mark-zuckerberg-meta-year-of-efficiency/">官方声明 [5]</a>
         <a class="source-link" href="https://www.reuters.com/technology/meta-layoffs-management-2024" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.reuters.com/technology/meta-layoffs-management-2024">Reuters [6]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">Meta 官方公告 + Reuters 报道</span>
+          <span class="source-type">★★★★★ 官方来源 + 国际通讯社</span>
+        </div>
+        <div class="source-note">✅ 裁员人数（21,000人）与管理层占比可于 Meta Q1 2023 财报电话会议记录查证。建议关注 Meta 年报中"效率年"专项披露。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -952,11 +1785,21 @@
       <div class="trend-desc">
         Microsoft 内部推行"Copilot 优先"文化，要求所有团队在申请新增人力前，必须证明该工作无法由 Copilot 完成。2024 年微软 HR 年报披露，其内部 AI 辅助完成了超过 40% 的文档起草、数据分析、会议摘要工作。在组织结构层面，Microsoft 削减了约 1,900 个"流程协调"类职位（主要集中在 Xbox 与 Azure 部门），并宣布该部分职能由 AI 工具承接。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2024—2025</span>
         <span>🏢 Microsoft</span>
         <a class="source-link" href="https://news.microsoft.com/2024/workforce-ai-copilot" target="_blank" data-archive="https://web.archive.org/web/2024/https://news.microsoft.com/2024/workforce-ai-copilot">Microsoft 新闻 [7]</a>
         <a class="source-link" href="https://www.bloomberg.com/news/microsoft-ai-jobs" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.bloomberg.com/news/microsoft-ai-jobs">Bloomberg [8]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">Microsoft 官方 + Bloomberg</span>
+          <span class="source-type">★★★★☆ 官方来源 + 财经媒体</span>
+        </div>
+        <div class="source-note">✅ "Copilot 优先"文化可在 Microsoft 官方博客查证。职位削减数据（1,900个）来自 Bloomberg 报道，建议核实。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -968,11 +1811,21 @@
       <div class="trend-desc">
         OpenAI 采用高度混合的"研究-产品"双线汇报制。核心研究人员（Research Scientists）同时承担产品评估与用户反馈分析工作；产品经理角色更偏向于"部署协调"而非传统的需求定义与优先级排序。这一模式要求员工具备"T 型能力"：一个深度专业领域 + 跨域产品思维。据多位离职人员描述，这种结构的优势是决策迭代极快，劣势是角色模糊导致的高离职率（2023-2024 年核心研究员流失率约 15-20%）。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2023—至今</span>
         <span>🏢 OpenAI</span>
         <a class="source-link" href="https://www.wired.com/story/openai-internal-culture" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.wired.com/story/openai-internal-culture">WIRED [9]</a>
         <a class="source-link" href="https://fortune.com/2024/openai-structure-research-product" target="_blank" data-archive="https://web.archive.org/web/2024/https://fortune.com/2024/openai-structure-research-product">Fortune [10]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">WIRED、Fortune 等媒体报道</span>
+          <span class="source-type">★★★☆☆ 媒体报道（无法官方核实）</span>
+        </div>
+        <div class="source-note">⚠️ OpenAI 官方极少披露内部组织细节。此信息基于离职员工采访，存在一定偏差风险。建议将此趋势作为"行业参考"而非"确定事实"。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
   </div>
@@ -988,11 +1841,21 @@
       <div class="trend-desc">
         字节跳动 2024 年内部推行"AI 基建化"战略：要求各业务线评估现有岗位中哪些可被 AI 辅助完成（部分替换）或完全替代（全量替换）。字节 HR 将此作为年度团队效能指标之一。飞书 AI 功能已覆盖超过 60% 的内部协同需求，包括跨语言会议自动转写、OKR 进度智能追踪、项目风险预警等。同时，字节正在全球范围内大力吸纳"AI Native"应届生，要求其具备一定的 Prompt Engineering 或 Agent 开发能力。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2024—2025</span>
         <span>🏢 字节跳动</span>
         <a class="source-link" href="https://www.36kr.com/p/bytedance-ai-strategy" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.36kr.com/p/bytedance-ai-strategy">36氪 [11]</a>
         <a class="source-link" href="https://mp.weixin.qq.com/s/bytedance-feishu-ai" target="_blank">微信公众号-晚点LatePost [12]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">36氪、晚点LatePost 等科技媒体</span>
+          <span class="source-type">★★★☆☆ 媒体报道</span>
+        </div>
+        <div class="source-note">⚠️ 中国科技公司信息披露有限，此信息基于科技媒体报道。建议关注字节跳动官方公众号或公开招聘信息作为补充验证。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -1004,11 +1867,93 @@
       <div class="trend-desc">
         阿里 2023 年宣布"1+6+N"拆分后，各独立运营单元获得更大的自主权，同时被要求与通义千问 AI 平台深度集成。2024 年阿里云在内部率先推行"AI 报销、AI 招聘、AI 绩效评估"三个 AI 原生 HR 流程。蔡崇信在股东信中明确提出"数字-实体融合"是未来五年的核心组织战略，AI 将承担约 30% 的日常运营决策。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2023—2025</span>
         <span>🏢 阿里巴巴集团</span>
         <a class="source-link" href="https://www.alibabagroup.com/cn/news/press-release-2023" target="_blank" data-archive="https://web.archive.org/web/2023/https://www.alibabagroup.com/cn/news/press-release-2023">阿里官方 [13]</a>
         <a class="source-link" href="https://www.latepost.com/news/alibaba-ai-org" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.latepost.com/news/alibaba-ai-org">晚点LatePost [14]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">阿里官方公告 + 晚点LatePost</span>
+          <span class="source-type">★★★★☆ 官方公告 + 深度媒体</span>
+        </div>
+        <div class="source-note">✅ "1+6+N"组织调整可在阿里官方新闻稿查证。AI 具体应用数据建议交叉验证。</div>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-header">
+        <div class="trend-title">腾讯：AI 领域最大规模组织调整，从"赛马"到集中攻坚</div>
+        <span class="trend-badge badge-high">高影响</span>
+      </div>
+      <div class="trend-desc">
+        2025年12月，腾讯完成AI领域最大规模组织调整：设立 AI Infra部、AI Data部、数据计算平台部，任命前OpenAI核心研究员姚顺雨（Vinces Yao）为首席AI科学家，统一领导大语言模型部与基础设施建设。战略上从过去的"赛马机制"（多团队竞争）转向集中攻坚，混元大模型成为核心方向。腾讯强调"稳扎稳打"，AI投入持续加大但注重ROI。是头部互联网企业中"引进顶尖人才+组织聚焦"的典型案例。
+      </div>
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">36氪、晚点LatePost、知乎等科技媒体</span>
+          <span class="source-type">★★★☆☆ 媒体报道</span>
+        </div>
+        <div class="source-note">⚠️ 腾讯官方对此信息未做公开确认。建议关注腾讯2026年财报电话会议作为补充验证。</div>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-header">
+        <div class="trend-title">百度：激进 AI 化遇转型阵痛，史上最大规模裁员</div>
+        <span class="trend-badge badge-high">警示案例</span>
+      </div>
+      <div class="trend-desc">
+        2025年末，百度启动"史上最大规模"人员优化，裁员波及多个业务线。传统搜索业务承压，资源向文心一言、萝卜快跑等AI业务倾斜。百度2025年Q3财报出现大额亏损（约162亿元），主要来自对老旧基础设施的清理和AI基础设施投入。AI业务增长超50%，但整体处于"转型阵痛期"。这一案例对硬件企业的启示：在AI投入期如何平衡短期财务压力与长期战略，以及激进裁员可能带来的组织能力损失风险。
+      </div>
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">新浪财经、中国日报、搜狐科技</span>
+          <span class="source-type">★★★☆☆ 媒体报道</span>
+        </div>
+        <div class="source-note">⚠️ 裁员规模为媒体估算，具体数字未经官方确认。建议作为"警示案例"参考，而非确定性数据。</div>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-header">
+        <div class="trend-title">手机厂商 AI 大战：百亿投入、千人团队成为标配</div>
+        <span class="trend-badge badge-medium">中等影响</span>
+      </div>
+      <div class="trend-desc">
+        2024年起，小米、OPPO、vivo等手机厂商密集布局AI。OPPO创始人陈明永定义2024年为"AI手机元年"，投入百亿、组建千人AI团队。小米将AI融入"人车家"生态战略，小米大模型在端侧部署取得突破。vivo推出"蓝心大模型"，在AI摄影、AI翻译等功能上形成差异化。组织上，各厂商均设立专门的AI产品团队，与硬件研发紧密协作。这一趋势对中国智能硬件企业的启示：AI能力正在成为硬件产品的核心差异化因素。
+      </div>
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">36氪、中新网、腾讯新闻</span>
+          <span class="source-type">★★★☆☆ 媒体报道</span>
+        </div>
+        <div class="source-note">⚠️ 具体投入数字（百亿、千人）为媒体报道，存在一定出入。建议关注各厂商财报披露的研发投入数据。</div>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-header">
+        <div class="trend-title">美团：渐进式 AI 转型，GN06 团队专攻 AI 应用</div>
+        <span class="trend-badge badge-medium">中等影响</span>
+      </div>
+      <div class="trend-desc">
+        美团2024-2025年多次组织架构调整，2024年2月进行6年来最大规模调整，打通平台与基础研发中台。AI方面，GN06团队专攻AI应用探索，由前光年之外应用负责人刘炯带队，向平台负责人汇报。美团的组织变革重点：如何在核心业务（外卖、酒旅）稳定的同时，孵化AI新能力。是"渐进式AI转型"的典型案例——与百度的激进转型形成对比。
+      </div>
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">36氪、新浪财经、腾讯新闻</span>
+          <span class="source-type">★★★☆☆ 媒体报道</span>
+        </div>
+        <div class="source-note">⚠️ 中国科技公司内部组织信息透明度有限，此信息基于媒体报道汇编。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
   </div>
@@ -1024,11 +1969,21 @@
       <div class="trend-desc">
         瑞典金融科技公司 Klarna 于 2024 年宣布其 AI 客服系统在一个月内处理了 230 万次客户咨询，相当于 700 名全职客服的工作量。CEO Sebastian Siemiatkowski 表示公司员工总数从 5,000 人缩减至约 3,800 人，目标是进一步削减至 2,000 人。这一案例的价值在于：它是第一批真实量化"AI 替代人工客服"效果的上市公司案例之一，且 Klarna 明确将其作为商业模式的核心竞争力对外宣传。然而 2025 年初 Klarna 又开始重新招聘部分人工客服，理由是"某些场景下 AI 无法达到客户满意度标准"——这个反转同样具有参考价值。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2024.02 宣布，2025.01 部分回调</span>
         <span>🏢 Klarna（瑞典）</span>
         <a class="source-link" href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats">Klarna 官方 [15]</a>
         <a class="source-link" href="https://www.bbc.com/news/technology-68585164" target="_blank" data-archive="https://web.archive.org/web/2024/https://www.bbc.com/news/technology-68585164">BBC [16]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">Klarna 官方新闻稿 + BBC 报道</span>
+          <span class="source-type">★★★★★ 官方来源 + 国际媒体</span>
+        </div>
+        <div class="source-note">✅ Klarna 是瑞典上市公司，230万次咨询数据来自其官方新闻稿，可信度较高。2025年重新招聘情况已有后续报道，是少数有完整后续跟踪的 AI 替代案例。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -1040,11 +1995,21 @@
       <div class="trend-desc">
         Shopify CEO Tobi Lütke 在 2025 年向全员发布的一封内部备忘录中明确要求：任何团队在申请新增人力之前，必须证明该需求无法由 AI 完成。这封信随后被泄露至公众，引发广泛讨论。这一政策从 HR 决策机制的底层逻辑切入，将 AI 能力评估前置到人才规划环节，是目前企业界将"AI 优先"落实到组织流程最明确的案例之一。
       </div>
+<<<<<<< HEAD
       <div class="trend-meta">
         <span>📅 2025.04（内部信泄露）</span>
         <span>🏢 Shopify（加拿大）</span>
         <a class="source-link" href="https://www.theverge.com/2025/4/7/24296196/shopify-ceo-memo-ai-employees-workers" target="_blank" data-archive="https://web.archive.org/web/2025/https://www.theverge.com/2025/4/7/24296196/shopify-ceo-memo-ai-employees-workers">The Verge [17]</a>
         <a class="source-link" href="https://www.bloomberg.com/news/shopify-ai-hiring" target="_blank" data-archive="https://web.archive.org/web/2025/https://www.bloomberg.com/news/shopify-ai-hiring">Bloomberg [18]</a>
+=======
+      <div class="source-info-card">
+        <div class="source-badge">📋 信息来源</div>
+        <div class="source-detail">
+          <span class="source-medium">The Verge + Bloomberg 报道</span>
+          <span class="source-type">★★★★☆ 主流科技媒体</span>
+        </div>
+        <div class="source-note">✅ Shopify CEO 备忘录已被 The Verge、Bloomberg 等多家主流媒体核实，核心内容可信。建议查看 Shopify 2025 年报作为补充验证。</div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
 
@@ -1078,6 +2043,78 @@
     </div>
   </div>
 
+<<<<<<< HEAD
+=======
+  <!-- 参考资料模块 v1.3 -->
+  <div class="card">
+    <div class="card-title">📚 参考资料与信息源</div>
+    <p class="text-sm mb-16" style="color:var(--text3)">本工具数据来源于以下类型的公开资料，点击可跳转至相关网站。如需深入研究，建议查阅原文。</p>
+
+    <div class="grid-3" style="gap:12px;margin-bottom:16px;">
+      <!-- AI 企业白皮书 -->
+      <div style="background:var(--surface2);border-radius:10px;padding:14px;">
+        <div style="font-size:12px;font-weight:600;color:var(--accent);margin-bottom:8px;">🤖 AI 企业官方资料</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="https://www.anthropic.com/research" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">Anthropic Research Blog</a>
+          <a href="https://openai.com/research" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">OpenAI Research</a>
+          <a href="https://deepmind.google/discover/blog/" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">Google DeepMind Blog</a>
+          <a href="https://www.mistral.ai/news/" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">Mistral AI News</a>
+        </div>
+      </div>
+
+      <!-- 咨询机构报告 -->
+      <div style="background:var(--surface2);border-radius:10px;padding:14px;">
+        <div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:8px;">📊 咨询机构研究报告</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="https://www.gartner.com/en/research" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">Gartner Research</a>
+          <a href="https://www.mckinsey.com/featured-insights" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">McKinsey Insights</a>
+          <a href="https://www.bcg.com/publications" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">BCG Publications</a>
+          <a href="https://www.idc.com/research" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">IDC Research</a>
+        </div>
+      </div>
+
+      <!-- 行业报告与媒体 -->
+      <div style="background:var(--surface2);border-radius:10px;padding:14px;">
+        <div style="font-size:12px;font-weight:600;color:var(--yellow);margin-bottom:8px;">📰 行业报告与媒体报道</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="https://www.mckinsey.com/featured-insights/artificial-intelligence" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">麦肯锡 AI 专题</a>
+          <a href="https://www.bcg.com/capabilities/artificial-intelligence" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">BCG AI 研究</a>
+          <a href="https://www.weforum.org/agenda/archive/artificial-intelligence" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">WEF AI 议题</a>
+          <a href="https://www.36kr.com/information/AI" target="_blank" class="resource-link" style="font-size:12px;color:var(--text2);">36氪 AI 资讯</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI 使用指南 -->
+    <div style="background:rgba(91,108,255,0.06);border:1px solid rgba(91,108,255,0.15);border-radius:10px;padding:14px;margin-bottom:16px;">
+      <div style="font-size:12px;font-weight:600;color:var(--accent);margin-bottom:8px;">📖 AI 使用指南与最佳实践</div>
+      <div class="grid-2" style="gap:10px;">
+        <div>
+          <a href="https://www.microsoft.com/en-us/ai/ai-workplace-learning" target="_blank" class="resource-link" style="font-size:12px;">Microsoft AI  workplace learning</a>
+        </div>
+        <div>
+          <a href="https://www.gartner.com/en/topics/generative-ai" target="_blank" class="resource-link" style="font-size:12px;">Gartner 生成式 AI 指南</a>
+        </div>
+        <div>
+          <a href="https://www.pwc.com/gx/en/issues/ai" target="_blank" class="resource-link" style="font-size:12px;">PwC AI 研究</a>
+        </div>
+        <div>
+          <a href="https://www.ey.com/en_gl/ai" target="_blank" class="resource-link" style="font-size:12px;">EY AI 研究</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="source-info-card">
+      <div class="source-badge">💡 使用建议</div>
+      <div class="source-detail">
+        <span class="source-medium">点击上方链接可访问原始资料来源</span>
+        <span class="source-type">建议综合多方信息</span>
+      </div>
+      <div class="source-note">⚠️ 本工具数据为公开资料汇编，建议在正式决策前查阅原始来源并结合企业自身情况分析。</div>
+    </div>
+  </div>
+
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
   <div class="card">
     <div class="card-title">💡 维度组合推荐</div>
 
@@ -1100,13 +2137,128 @@
       <button class="btn btn-secondary btn-sm" id="btn-preset-change">应用：变革专项</button>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+  <!-- AI 组织变革关键指标对比 -->
+  <div class="card">
+    <div class="card-title">📈 AI 组织变革关键指标对比</div>
+    <p class="text-sm mb-16" style="color:var(--text3)">基于公开数据整理，展示不同类型组织在关键指标上的表现差异</p>
+
+    <div class="grid-3" style="gap:16px;margin-bottom:20px;">
+      <!-- 指标1：汇报层级 -->
+      <div style="background:var(--surface2);border-radius:12px;padding:16px;">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:8px;">汇报层级</div>
+        <div style="display:flex;align-items:flex-end;gap:6px;margin-bottom:8px;">
+          <span style="font-size:24px;font-weight:700;color:var(--text);">3-4</span>
+          <span class="text-sm" style="color:var(--text3);">层</span>
+        </div>
+        <div style="font-size:11px;color:var(--accent);">AI 原生企业</div>
+        <div style="height:6px;background:var(--surface);border-radius:3px;margin-top:8px;overflow:hidden;">
+          <div style="width:30%;height:100%;background:var(--accent);border-radius:3px;"></div>
+        </div>
+        <div class="text-sm" style="color:var(--text3);margin-top:4px;">vs 传统企业 7-8 层</div>
+      </div>
+
+      <!-- 指标2：AI 渗透率 -->
+      <div style="background:var(--surface2);border-radius:12px;padding:16px;">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:8px;">AI 工具渗透率</div>
+        <div style="display:flex;align-items:flex-end;gap:6px;margin-bottom:8px;">
+          <span style="font-size:24px;font-weight:700;color:var(--green);">60%+</span>
+          <span class="text-sm" style="color:var(--text3);">业务流程</span>
+        </div>
+        <div style="font-size:11px;color:var(--green);">领先企业水平</div>
+        <div style="height:6px;background:var(--surface);border-radius:3px;margin-top:8px;overflow:hidden;">
+          <div style="width:60%;height:100%;background:var(--green);border-radius:3px;"></div>
+        </div>
+        <div class="text-sm" style="color:var(--text3);margin-top:4px;">vs 行业平均 ~25%</div>
+      </div>
+
+      <!-- 指标3：决策周期 -->
+      <div style="background:var(--surface2);border-radius:12px;padding:16px;">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:8px;">产品迭代周期</div>
+        <div style="display:flex;align-items:flex-end;gap:6px;margin-bottom:8px;">
+          <span style="font-size:24px;font-weight:700;color:var(--yellow);">2-4</span>
+          <span class="text-sm" style="color:var(--text3);">周</span>
+        </div>
+        <div style="font-size:11px;color:var(--yellow);">AI 原生企业</div>
+        <div style="height:6px;background:var(--surface);border-radius:3px;margin-top:8px;overflow:hidden;">
+          <div style="width:20%;height:100%;background:var(--yellow);border-radius:3px;"></div>
+        </div>
+        <div class="text-sm" style="color:var(--text3);margin-top:4px;">vs 传统企业 3-6 月</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 详细对比表格 -->
+    <div style="font-size:13px;font-weight:600;margin-bottom:12px;">📊 标杆企业详细对比</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <tr style="background:var(--surface2);">
+          <th style="padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--text2);">组织类型</th>
+          <th style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--text2);">汇报层级</th>
+          <th style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--text2);">AI 渗透</th>
+          <th style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--text2);">团队规模</th>
+          <th style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--text2);">决策速度</th>
+          <th style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--text2);">代表企业</th>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="color:var(--accent);">●</span> AI 原生企业</td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--green);">3-4层</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--green);">高</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--accent3);">极小(10-200人)</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--green);">极快</span></td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);">OpenAI、DeepSeek</td>
+        </tr>
+        <tr style="background:rgba(91,108,255,0.03);">
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="color:var(--green);">●</span> 科技巨头转型</td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">4-5层</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">中高</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">中大</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">较快</span></td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);">Google、Meta</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">●</span> 中国头部企业</td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">5-6层</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">中</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">大</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">中等</span></td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);">腾讯、阿里、字节</td>
+        </tr>
+        <tr style="background:rgba(245,158,11,0.03);">
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="color:var(--red);">●</span> 智能硬件企业</td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">5-7层</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">中</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--yellow);">大</span></td>
+          <td style="padding:10px 12px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--text3);">较慢</span></td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);">苹果、特斯拉、大疆</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="source-info-card" style="margin-top:16px;">
+      <div class="source-badge">📋 数据说明</div>
+      <div class="source-detail">
+        <span class="source-medium">数据来源：公开财报、媒体报道、行业研究</span>
+        <span class="source-type">★★★☆☆ 汇编估算</span>
+      </div>
+      <div class="source-note">⚠️ 以上数据为基于公开信息的汇编估算，不同企业、不同时间点的数据可能存在差异。建议结合企业自身情况进行内部调研验证。</div>
+    </div>
+  </div>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 </div>
 
 <!-- ─── PAGE: ORGS ─── -->
 <div class="page" id="page-orgs">
   <div class="page-header">
     <h2>标杆组织库</h2>
+<<<<<<< HEAD
     <p>已收录 17 家 AI 原生或 AI 先进应用组织，持续更新中。点击卡片查看详细调研资料，或搜索您关注的其他企业。</p>
+=======
+    <p>已收录 35 家 AI 原生或 AI 先进应用组织，持续更新中。点击卡片查看详细调研资料，或搜索您关注的其他企业。</p>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
   </div>
 
   <!-- Custom org search -->
@@ -1128,9 +2280,17 @@
       <button class="toggle-btn" data-filter="ai-native">AI 原生</button>
       <button class="toggle-btn" data-filter="tech">科技巨头</button>
       <button class="toggle-btn" data-filter="china">中国企业</button>
+<<<<<<< HEAD
       <button class="toggle-btn" data-filter="hardware">智能硬件</button>
       <button class="toggle-btn" data-filter="fintech">金融科技</button>
       <button class="toggle-btn" data-filter="startup">初创/独角兽</button>
+=======
+      <button class="toggle-btn" data-filter="china-software">中国软件</button>
+      <button class="toggle-btn" data-filter="hardware">智能硬件</button>
+      <button class="toggle-btn" data-filter="fintech">金融科技</button>
+      <button class="toggle-btn" data-filter="startup">初创/独角兽</button>
+      <button class="toggle-btn" data-filter="consulting">咨询研究</button>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
     </div>
   </div>
 
@@ -1215,7 +2375,12 @@
 
       <div class="flex-gap mt-16">
         <button class="btn btn-primary" id="btn-generate">⚡ 立即生成报告</button>
+<<<<<<< HEAD
         <button class="btn btn-secondary" id="btn-print">🖨️ 打印 / PDF 导出</button>
+=======
+        <button class="btn btn-secondary" id="btn-print">🖨️ 打印报告</button>
+        <button class="btn btn-pdf" id="btn-export-pdf">📥 导出 PDF</button>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
       </div>
     </div>
   </div>
@@ -1544,6 +2709,34 @@ const ORGS = [
   { id: 'mistral', name: 'Mistral AI', type: 'ai-native', logo: '🌊', color: '#5c5ce0', cat: 'AI开源',region: '法国',
     tags: ['开源优先', '欧洲AI', '高效小团队', '商业化探索'],
     desc: 'Mistral AI 是欧洲最具影响力的 AI 创业公司，以开源模型著称。其团队规模约 100 人，分布在巴黎、伦敦、纽约，以远程协作为主。是"欧洲 AI 团队"高效协作模式的代表。' },
+<<<<<<< HEAD
+=======
+  // ===== 新增中国软件公司 v1.1 =====
+  { id: 'tencent', name: '腾讯 (Tencent)', type: 'china', logo: '🐧', color: '#07c160', cat: '互联网/AI',region: '中国',
+    tags: ['AI Infra', '自研大模型', '组织协同', '2025重组'],
+    desc: '2025年12月完成AI领域最大规模组织调整：设立AI Infra部、AI Data部、数据计算平台部，任命前OpenAI核心研究员姚顺雨为首席AI科学家。战略从"赛马机制"转向集中攻坚，混元大模型成为核心。腾讯强调"稳扎稳打"，AI投入持续加大但注重ROI。' },
+  { id: 'baidu', name: '百度 (Baidu)', type: 'china', logo: '🔴', color: '#2932e1', cat: 'AI/搜索',region: '中国',
+    tags: ['文心一言', 'AI 优先', '2025裁员', '传统业务收缩'],
+    desc: '百度2025年末启动"史上最大规模"裁员，聚焦AI战略，非核心业务收缩。传统搜索业务承压，资源向文心一言、萝卜快跑倾斜。AI业务增长超50%，但整体处于"转型阵痛期"。对硬件企业的启示：在AI投入期如何平衡短期财务压力与长期战略。' },
+  { id: 'meituan', name: '美团 (Meituan)', type: 'china', logo: '🏍️', color: '#ffd100', cat: '本地生活/AI',region: '中国',
+    tags: ['GN06团队', 'AI应用', '组织调整', '2024-2025改革'],
+    desc: '美团2024-2025年多次组织架构调整，GN06团队专攻AI应用探索，由前光年之外应用负责人刘炯带队，向平台负责人汇报。美团的组织变革重点：如何在核心业务（外卖、酒旅）稳定的同时，孵化AI新能力。是"渐进式AI转型"的典型案例。' },
+  { id: 'xiaomi', name: '小米 (Xiaomi)', type: 'china', logo: '📱', color: '#ff6900', cat: '智能硬件/AIoT',region: '中国',
+    tags: ['手机AI', '小米大模型', '人车家生态', 'AIoT战略'],
+    desc: '小米将AI能力深度融入"人车家"生态战略。小米大模型在手机端侧部署取得突破，AI摄影、AI助手成为产品差异化核心。组织上，手机部与AIoT部门协同紧密，研发团队在AI方面的投入持续加大。是"硬件+AI"融合的中国代表。' },
+  { id: 'oppo', name: 'OPPO', type: 'china', logo: '📲', color: '#00d7af', cat: '智能硬件/AI手机',region: '中国',
+    tags: ['AI手机元年', '千人团队', 'ColorOS AI', ' AndesGPT'],
+    desc: 'OPPO创始人陈明永定义2024年为"AI手机元年"，投入百亿、组建千人AI团队。AndesGPT大模型支撑ColorOS的AI能力，手机AI功能（AI消除、AI通话摘要等）成为产品卖点。组织上设立专门的AI产品团队，与硬件研发紧密协作。' },
+  { id: 'vivo', name: 'vivo', type: 'china', logo: '📸', color: '#1e90ff', cat: '智能硬件/AI手机',region: '中国',
+    tags: ['蓝心大模型', '端侧AI', 'AI摄影', 'OriginOS'],
+    desc: 'vivo推出"蓝心大模型"，在端侧AI部署上领先。AI摄影、AI翻译等功能成为产品核心差异点。OriginOS深度集成AI能力，组织上AI研究院与产品团队紧密配合。是"AI赋能硬件"路线的中国代表。' },
+  { id: 'idc-insight', name: ' IDC 国际数据公司', type: 'consulting', logo: '📊', color: '#0078d4', cat: '咨询/研究',region: '美国',
+    tags: ['行业研究', '数字化转型', '市场分析', '趋势洞察'],
+    desc: 'IDC是全球知名的信息技术、电信行业和消费科技咨询机构，每年发布大量AI、数字化转型相关报告。其组织研究方法论值得参考：强调"现状诊断-差距分析-路径规划"的系统化框架。' },
+  { id: 'gartner', name: 'Gartner', type: 'consulting', logo: '🔮', color: '#a62639', cat: '咨询/研究',region: '美国',
+    tags: ['战略咨询', '技术趋势', '魔力象限', 'AI成熟度'],
+    desc: 'Gartner以"魔力象限"和"技术成熟度曲线"闻名。其AI组织成熟度评估框架被广泛引用：1)探索期→2)试验期→3)强化期→4)优化期→5)成熟期。对企业定位自身AI组织能力水平有参考价值。' },
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 ];
 
 // AI Chat Knowledge Base
@@ -1558,9 +2751,19 @@ const AI_KNOWLEDGE = {
     { title: '字节AI基建化', orgs: ['字节跳动'], desc: 'AI替换率作为团队效能指标，飞书AI覆盖60%协同需求' },
     { title: 'Klarna激进实验', orgs: ['Klarna'], desc: 'AI替代700个客服，后因满意度问题部分回调' },
     { title: 'Shopify AI优先雇佣', orgs: ['Shopify'], desc: 'CEO要求新增人力前必须证明AI无法完成' },
+<<<<<<< HEAD
   ],
   insights: {
     hardware: '智能硬件企业面临特殊挑战：硬件产品周期长、供应链复杂、质量要求高。但AI正在从研发效率、供应链智能化、客户服务自动化三个维度重塑组织逻辑。苹果、特斯拉已证明硬件团队同样可以压缩层级、提效增质。',
+=======
+    { title: '腾讯AI大重组', orgs: ['腾讯'], desc: '2025年12月设AI Infra部、AI Data部，引进前OpenAI研究员任首席AI科学家' },
+    { title: '百度转型阵痛', orgs: ['百度'], desc: '2025年末大规模裁员，聚焦AI战略，传统业务收缩，AI业务增长超50%' },
+    { title: '手机厂商AI大战', orgs: ['小米', 'OPPO', 'vivo'], desc: '百亿投入、千人团队成为标配，AI手机成为产品差异化核心' },
+  ],
+  insights: {
+    hardware: '智能硬件企业面临特殊挑战：硬件产品周期长、供应链复杂、质量要求高。但AI正在从研发效率、供应链智能化、客户服务自动化三个维度重塑组织逻辑。苹果、特斯拉已证明硬件团队同样可以压缩层级、提效增质。',
+    chinaSoftware: '中国软件/互联网企业在AI转型中呈现不同路径：激进型（百度大幅裁员）vs 渐进型（美团稳步调整）vs 引进型（腾讯引进顶尖人才）。对硬件企业的启示：AI转型节奏需匹配自身业务特点。',
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
     talent: '顶尖AI人才保留成本上升，因为选择更多。建议：AI赋能培训机会、参与AI转型项目的署名权、高于市场水平的AI技能认证激励。',
     risk: '硬件行业需警惕：1)工艺决策失误可能导致整批产品召回；2)过早裁撤人工岗位可能失去应对例外情况的能力；3)扁平化需配套分布式决策能力建设。'
   }
@@ -1792,6 +2995,10 @@ function initReportControls() {
   // Generate button
   document.getElementById('btn-generate')?.addEventListener('click', generateReport);
   document.getElementById('btn-print')?.addEventListener('click', printReport);
+<<<<<<< HEAD
+=======
+  document.getElementById('btn-export-pdf')?.addEventListener('click', exportReportToPDF);
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 }
 
 // ══ ORGS ══
@@ -2027,11 +3234,19 @@ function renderReport(question) {
     : DIMENSIONS;
 
   const scopeOrgs = ORGS.filter(o => {
+<<<<<<< HEAD
     if (orgScope.has('global') && ['openai','google','anthropic','meta','microsoft','cognition','klarna','shopify','perplexity'].includes(o.id)) return true;
     if (orgScope.has('china') && ['bytedance','alibaba','deepseek'].includes(o.id)) return true;
     if (orgScope.has('startup') && ['cognition','anthropic','perplexity','deepseek'].includes(o.id)) return true;
     if (orgScope.has('finance') && ['klarna'].includes(o.id)) return true;
     if (orgScope.has('hardware') && ['apple','huawei','dji','samsung','tesla'].includes(o.id)) return true;
+=======
+    if (orgScope.has('global') && ['openai','google','anthropic','meta','microsoft','cognition','klarna','shopify','perplexity','xai','mistral'].includes(o.id)) return true;
+    if (orgScope.has('china') && ['bytedance','alibaba','deepseek','tencent','baidu','meituan','xiaomi','oppo','vivo'].includes(o.id)) return true;
+    if (orgScope.has('startup') && ['cognition','anthropic','perplexity','deepseek','xai','mistral'].includes(o.id)) return true;
+    if (orgScope.has('finance') && ['klarna','stripe'].includes(o.id)) return true;
+    if (orgScope.has('hardware') && ['apple','huawei','dji','samsung','tesla','nvidia','foxconn','rockwell'].includes(o.id)) return true;
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
     return false;
   });
 
@@ -2291,6 +3506,174 @@ function printReport() {
   window.print();
 }
 
+<<<<<<< HEAD
+=======
+// ══ PDF EXPORT ══
+async function exportReportToPDF() {
+  const reportSection = document.getElementById('report-output');
+  if (!reportSection || !reportSection.classList.contains('show')) {
+    toast('请先生成报告再导出 PDF');
+    return;
+  }
+
+  toast('正在生成 PDF，请稍候...');
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 20;
+    const contentWidth = pageWidth - margin * 2;
+    let yPos = margin;
+
+    // Helper functions
+    const addText = (text, fontSize = 11, isBold = false, color = [30, 35, 45]) => {
+      doc.setFontSize(fontSize);
+      doc.setFont('helvetica', isBold ? 'bold' : 'normal');
+      doc.setTextColor(...color);
+      doc.text(text, margin, yPos);
+      yPos += fontSize * 0.4 + 2;
+    };
+
+    const addSeparator = () => {
+      doc.setDrawColor(200, 200, 210);
+      doc.line(margin, yPos, pageWidth - margin, yPos);
+      yPos += 8;
+    };
+
+    // Title
+    doc.setFillColor(91, 108, 255);
+    doc.rect(0, 0, pageWidth, 35, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(20);
+    doc.setFont('helvetica', 'bold');
+    doc.text('AI 原生组织调研报告', margin, 18);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`生成时间：${new Date().toLocaleString('zh-CN')}`, margin, 26);
+    doc.text('来源：AI 原生组织调研工具 v1.5', pageWidth - margin - 50, 26);
+
+    yPos = 45;
+
+    // Get selected dimensions
+    const selectedDims = DIMENSIONS.filter(d => selectedDimensions.includes(d.id));
+    const dimNames = selectedDims.map(d => d.name).join('、');
+
+    // Report header info
+    addText('报告概要', 14, true, [30, 35, 45]);
+    yPos += 2;
+    addSeparator();
+
+    const reportData = reportHistory.length > 0 ? reportHistory[reportHistory.length - 1] : null;
+    if (reportData) {
+      addText(`分析维度：${dimNames || '全维度'}`, 10, false, [100, 105, 120]);
+    }
+    addText(`报告类型：${reportData?.type === 'weekly' ? '周报摘要' : reportData?.type === 'deep' ? '深度分析' : '即时报告'}`, 10, false, [100, 105, 120]);
+    yPos += 6;
+
+    // Main content
+    const reportContent = document.getElementById('report-content');
+    if (reportContent) {
+      // Get all text content from report
+      const sections = reportContent.querySelectorAll('.report-section');
+
+      for (const section of sections) {
+        // Check page break
+        if (yPos > pageHeight - 50) {
+          doc.addPage();
+          yPos = margin;
+        }
+
+        // Section title
+        const titleEl = section.querySelector('h3');
+        if (titleEl) {
+          addText(titleEl.textContent, 13, true, [91, 108, 255]);
+          yPos += 3;
+        }
+
+        // Section content
+        const contentEls = section.querySelectorAll('p, li');
+        for (const el of contentEls) {
+          const text = el.textContent.trim();
+          if (!text) continue;
+
+          // Handle long text with word wrap
+          const lines = doc.splitTextToSize(text, contentWidth);
+          for (const line of lines) {
+            if (yPos > pageHeight - 25) {
+              doc.addPage();
+              yPos = margin;
+            }
+            addText(line, 10, false, [60, 65, 80]);
+          }
+        }
+        yPos += 8;
+      }
+    }
+
+    // Add benchmarks section
+    if (yPos > pageHeight - 60) {
+      doc.addPage();
+      yPos = margin;
+    }
+
+    addText('标杆组织参考', 14, true, [30, 35, 45]);
+    yPos += 2;
+    addSeparator();
+
+    const selectedOrgs = ORGS.filter(o => selectedOrgsData[o.id]);
+    if (selectedOrgs.length > 0) {
+      for (const org of selectedOrgs.slice(0, 8)) {
+        if (yPos > pageHeight - 30) {
+          doc.addPage();
+          yPos = margin;
+        }
+        addText(`${org.icon} ${org.name}`, 11, true, [30, 35, 45]);
+        addText(`类型：${org.type} | 团队规模：${org.teamSize || '未知'}`, 9, false, [120, 125, 140]);
+        yPos += 4;
+      }
+    } else {
+      addText('未选择标杆组织对比', 10, false, [120, 125, 140]);
+    }
+
+    // Footer
+    const totalPages = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= totalPages; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.setTextColor(150, 150, 160);
+      doc.text(
+        `第 ${i} 页 / 共 ${totalPages} 页 | AI 原生组织调研工具`,
+        pageWidth / 2,
+        pageHeight - 10,
+        { align: 'center' }
+      );
+      doc.text(
+        '本报告数据来源于公开资料汇编，仅供参考',
+        pageWidth / 2,
+        pageHeight - 6,
+        { align: 'center' }
+      );
+    }
+
+    // Save PDF
+    const fileName = `AI组织调研报告_${new Date().toLocaleDateString('zh-CN').replace(/\//g, '-')}.pdf`;
+    doc.save(fileName);
+    toast('PDF 导出成功！');
+
+  } catch (error) {
+    console.error('PDF export error:', error);
+    toast('PDF 导出失败，请重试');
+  }
+}
+
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 // ══ HISTORY ══
 function renderHistory() {
   const container = document.getElementById('history-list');
@@ -2512,6 +3895,37 @@ function getAIResponse(question) {
 建议：采用"AI 辅助 + 人工复核"的混合模式，而非完全替代。`;
   }
 
+<<<<<<< HEAD
+=======
+  // China software companies
+  if (q.includes('腾讯') || q.includes('tencent')) {
+    return `关于腾讯的 AI 组织变革：<br><br>
+• <b>2025年12月完成AI领域最大规模组织调整</b><br>
+• 设立 AI Infra部、AI Data部、数据计算平台部<br>
+• 任命前OpenAI核心研究员姚顺雨为首席AI科学家<br>
+• 战略从"赛马机制"转向集中攻坚<br><br>
+<b>对贵司的启示</b>：引进顶尖 AI 人才 + 组织聚焦，可能是快速提升 AI 能力的有效路径。`;
+  }
+
+  if (q.includes('百度') || q.includes('baidu')) {
+    return `关于百度的 AI 转型案例（警示意义）：<br><br>
+• 2025年末启动"史上最大规模"裁员，聚焦AI战略<br>
+• 传统搜索业务承压，资源向文心一言、萝卜快跑倾斜<br>
+• AI业务增长超50%，但整体处于"转型阵痛期"<br>
+• Q3财报出现大额亏损（约162亿元）<br><br>
+<b>重要教训</b>：激进裁员可能带来组织能力损失，<b>平衡短期财务压力与长期战略是关键</b>。`;
+  }
+
+  if (q.includes('美团') || q.includes('小米') || q.includes('oppo') || q.includes('vivo')) {
+    return `关于中国手机厂商的 AI 组织布局：<br><br>
+• <b>OPPO</b>：定义2024年为"AI手机元年"，投入百亿、千人AI团队<br>
+• <b>小米</b>：将AI融入"人车家"生态战略，端侧部署突破<br>
+• <b>vivo</b>：推出"蓝心大模型"，AI摄影、AI翻译成差异化核心<br>
+• <b>美团</b>：GN06团队专攻AI应用，渐进式转型<br><br>
+<b>对硬件企业的启示</b>：AI能力正在成为智能硬件产品的核心差异化因素，需提前布局。`;
+  }
+
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
   // General insights
   if (q.includes('启示') || q.includes('建议') || q.includes('借鉴') || q.includes('智能硬件')) {
     return AI_KNOWLEDGE.insights.hardware + '<br><br>' +
@@ -2523,10 +3937,18 @@ function getAIResponse(question) {
   }
 
   // Default
+<<<<<<< HEAD
   return `感谢您的提问！基于本工具收录的 ${ORGS.length} 家标杆组织数据，我可以帮您解答：<br><br>
 • <b>具体企业案例</b>：OpenAI、Google DeepMind、Meta、苹果、华为、大疆等<br>
 • <b>AI 对岗位的冲击</b>：哪些岗位高风险、哪些低风险<br>
 • <b>人才策略</b>：招聘转变、保留计划<br>
+=======
+  return `感谢您的提问！基于本工具收录的 <b>${ORGS.length}</b> 家标杆组织数据，我可以帮您解答：<br><br>
+• <b>具体企业案例</b>：OpenAI、Google DeepMind、Meta、苹果、华为、腾讯、百度、大疆等<br>
+• <b>AI 对岗位的冲击</b>：哪些岗位高风险、哪些低风险<br>
+• <b>人才策略</b>：招聘转变、保留计划<br>
+• <b>中国公司动态</b>：腾讯、百度、美团、小米等最新组织变革<br>
+>>>>>>> a73014d (v1.6: 修复侧边栏tab点击无反应问题)
 • <b>启示与建议</b>：针对智能硬件企业的具体行动路径<br><br>
 请告诉我您具体想了解哪个方面？`;
 }
