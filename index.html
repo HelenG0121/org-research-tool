@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>AI 原生组织调研工具 v1.6</title>
+<title>AI 原生组织调研工具 v1.7</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -399,6 +399,30 @@
   .tag {
     font-size: 11px; padding: 2px 8px; border-radius: 20px;
     background: var(--surface); border: 1px solid var(--border); color: var(--text3);
+  }
+
+  /* ── Dimension Tag Button ── */
+  .dim-tag-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .dim-tag-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  .dim-tag-btn.selected {
+    background: rgba(91, 108, 255, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .org-desc { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
@@ -1568,7 +1592,7 @@
       <span class="icon">🌐</span> 外部趋势洞察
     </div>
     <div class="nav-item" id="nav-dimensions">
-      <span class="icon">🔭</span> 分析维度设置
+      <span class="icon">🔭</span> 分析框架与参考资源
     </div>
     <div class="nav-item" id="nav-orgs">
       <span class="icon">🏢</span> 标杆组织库
@@ -1600,7 +1624,7 @@
       <div class="update-info">
         <div class="update-row">
           <span class="update-label">当前版本</span>
-          <span class="update-value" id="current-version">v1.6</span>
+          <span class="update-value" id="current-version">v1.7</span>
         </div>
         <div class="update-row">
           <span class="update-label">信息库周期</span>
@@ -1922,8 +1946,8 @@
 <!-- ─── PAGE: DIMENSIONS ─── -->
 <div class="page" id="page-dimensions">
   <div class="page-header">
-    <h2>分析维度设置</h2>
-    <p>选择本次报告关注的核心分析维度。不同维度决定报告的侧重点，可组合使用，每次生成报告前均可调整。</p>
+    <h2>分析框架与参考资源</h2>
+    <p>了解本工具的分析维度体系与信息来源。分析维度决定报告的侧重点，可组合使用；参考资源列出了主要的数据来源与延伸阅读材料。</p>
   </div>
 
   <div class="card">
@@ -2246,9 +2270,9 @@
       </div>
 
       <div class="config-row">
-        <span class="config-label">当前维度</span>
-        <div id="selected-dims-preview" class="flex-gap" style="flex-wrap:wrap;">
-          <span class="text-sm" style="color:var(--text3)">（未选择维度，将使用默认全维度）</span>
+        <span class="config-label">分析维度</span>
+        <div id="report-dims-container" class="flex-gap" style="flex-wrap:wrap;gap:6px;">
+          <!-- 维度选择按钮将由 JavaScript 动态生成 -->
         </div>
       </div>
 
@@ -2817,16 +2841,30 @@ function applyPreset(type) {
 }
 
 function updateDimPreview() {
-  const el = document.getElementById('selected-dims-preview');
+  const el = document.getElementById('report-dims-container');
   if (!el) return;
-  if (selectedDims.size === 0) {
-    el.innerHTML = '<span class="text-sm" style="color:var(--text3)">（未选择维度，将使用默认全维度）</span>';
-    return;
-  }
-  el.innerHTML = [...selectedDims].map(id => {
-    const d = DIMENSIONS.find(x => x.id === id);
-    return d ? `<span class="tag">${d.icon} ${d.name}</span>` : '';
+  
+  el.innerHTML = DIMENSIONS.map(d => {
+    const isSelected = selectedDims.has(d.id);
+    return `<button class="dim-tag-btn ${isSelected ? 'selected' : ''}" data-dim="${d.id}">
+      <span>${d.icon}</span>
+      <span>${d.name}</span>
+    </button>`;
   }).join('');
+  
+  // 添加点击事件
+  el.querySelectorAll('.dim-tag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dimId = btn.dataset.dim;
+      if (selectedDims.has(dimId)) {
+        selectedDims.delete(dimId);
+        btn.classList.remove('selected');
+      } else {
+        selectedDims.add(dimId);
+        btn.classList.add('selected');
+      }
+    });
+  });
 }
 
 // ══ REPORT CONTROLS ══
@@ -3338,7 +3376,7 @@ ${hasFailure || activeDimIds.length === 0 ? `
       {n:5, name:'Meta 官方：扎克伯格"效率年"声明', url:'https://about.fb.com/news/2023/03/mark-zuckerberg-meta-year-of-efficiency/', type:'official'},
       {n:7, name:'Apple Newsroom：Apple AI 相关官方新闻', url:'https://www.apple.com/newsroom/', type:'official'},
       {n:8, name:'华为官方新闻', url:'https://www.huawei.com/cn/press-events/news', type:'official'},
-      {n:9, name:'Tesla Blog：产品与技术更新', url:'https://www.tesla.com/blog', type:'official'},
+      {n:9, name:'WIRED：OpenAI 内部文化报道', url:'https://www.wired.com/story/openai-internal-culture', type:'news'},
       {n:15, name:'Klarna 官方新闻：AI 助理处理 230 万次咨询', url:'https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats', type:'official'},
       {n:16, name:'BBC：Klarna AI 客服报道', url:'https://www.bbc.com/news/technology-68585164', type:'news'},
       {n:17, name:'The Verge：Shopify CEO 内部备忘录', url:'https://www.theverge.com/2025/4/7/24296196/shopify-ceo-memo-ai-employees-workers', type:'news'},
@@ -3418,7 +3456,7 @@ async function exportReportToPDF() {
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.text(`生成时间：${new Date().toLocaleString('zh-CN')}`, margin, 26);
-    doc.text('来源：AI 原生组织调研工具 v1.5', pageWidth - margin - 50, 26);
+    doc.text('来源：AI 原生组织调研工具 v1.6', pageWidth - margin - 50, 26);
 
     yPos = 45;
 
@@ -3488,7 +3526,15 @@ async function exportReportToPDF() {
     yPos += 2;
     addSeparator();
 
-    const selectedOrgs = ORGS.filter(o => selectedOrgsData[o.id]);
+    // 获取根据当前 orgScope 筛选的组织
+    const selectedOrgs = ORGS.filter(o => {
+      if (orgScope.has('global') && ['openai','google','anthropic','meta','microsoft','cognition','klarna','shopify','perplexity','xai','mistral'].includes(o.id)) return true;
+      if (orgScope.has('china') && ['bytedance','alibaba','deepseek','tencent','baidu','meituan','xiaomi','oppo','vivo'].includes(o.id)) return true;
+      if (orgScope.has('startup') && ['cognition','anthropic','perplexity','deepseek','xai','mistral'].includes(o.id)) return true;
+      if (orgScope.has('finance') && ['klarna','stripe'].includes(o.id)) return true;
+      if (orgScope.has('hardware') && ['apple','huawei','dji','samsung','tesla','nvidia','foxconn','rockwell'].includes(o.id)) return true;
+      return false;
+    });
     if (selectedOrgs.length > 0) {
       for (const org of selectedOrgs.slice(0, 8)) {
         if (yPos > pageHeight - 30) {
